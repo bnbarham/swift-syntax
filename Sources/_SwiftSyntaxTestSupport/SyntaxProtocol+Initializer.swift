@@ -15,7 +15,9 @@ import SwiftBasicFormat
 import SwiftSyntaxBuilder
 
 private class InitializerExprFormat: BasicFormat {
-  override var indentation: TriviaPiece { return .spaces(indentationLevel * 2) }
+  public init() {
+    super.init(indentWidth: 2)
+  }
 
   private func formatChildrenSeparatedByNewline<SyntaxType: SyntaxProtocol>(children: SyntaxChildren, elementType: SyntaxType.Type) -> [SyntaxType] {
     indentationLevel += 1
